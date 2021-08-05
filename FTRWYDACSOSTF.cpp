@@ -103,10 +103,11 @@ int main()
 	int fastestTime_hr = fastestTime / 60 / 60;
 	int fastestTime_min = fastestTime / 60 - fastestTime_hr * 60;
 	double fastestTime_sec = fastestTime - fastestTime_min * 60 - fastestTime_hr * 60 * 60;
-	cout << "Fastest run: #" << fastestRunId << " @ "
+	cout << "Fastest run: "
 		<< fastestTime_hr << "h "
 		<< fastestTime_min << "m "
-		<< fastestTime_sec << "s";
+		<< fastestTime_sec << "s / #"
+		<< fastestRunId;
 		
 	// Checksum
 	if ((((fastestTime_hr*60)+fastestTime_min)*60)+fastestTime_sec != fastestTime)
