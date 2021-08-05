@@ -1,4 +1,5 @@
 // To start, I'm just gonna have it hardcoded to do babies subsplits
+// Still needs to detect and ignore resets
 
 #include <iostream>
 #include <fstream>
