@@ -81,13 +81,35 @@ int main()
 				
 				// Add time to run
 				run[curId] += time;
-				
-				debugOutput<<curId<<"/"<<time<<"/"<<run[curId]<<"|";
 			}
 		}
-		
-		debugOutput<<line<<endl;
 	}
+	
+	// Search through array to find fastest run
+	int fastestRunId = -1;
+	double fastestTime = -1;
+	for (int i = 0; i < 99999; i++)
+	{
+		if (run[i] != 0 &&
+			(run[i] <= fastestTime || fastestTime == -1))
+			{
+				fastestRunId = i;
+				fastestTime = run[i];
+			}
+	}
+	
+	// Print fastest run
+	int fastestTime_hr = fastestTime / 60 / 60;
+	int fastestTime_min = fastestTime / 60 - fastestTime_hr * 60;
+	double fastestTime_sec = fastestTime - fastestTime_min * 60 - fastestTime_hr * 60 * 60;
+	cout << "Fastest run: #" << fastestRunId << " @ "
+		<< fastestTime_hr << "h "
+		<< fastestTime_min << "m "
+		<< fastestTime_sec << "s";
+		
+	// Checksum
+	if ((((fastestTime_hr*60)+fastestTime_min)*60)+fastestTime_sec != fastestTime)
+	cout << endl << "wait... maybe that's not right? time in s is " << fastestTime;
 	
 	// Close files
 	debugOutput.close();
