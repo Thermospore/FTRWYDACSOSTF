@@ -20,7 +20,7 @@ int main()
 	
 	// Read splits file line by line
 	string line = "";
-	ifstream lss("Croc 2 - Any% (PC).lss");
+	ifstream lss("target.lss");
 	while (getline(lss, line))
 	{
 		// Flag when you are in the stretch you are timing
